@@ -8,8 +8,46 @@ Which of the following lines will compile without warning or error.
     3) byte b=257; 
     4) boolean b=null; 
     5) int i=10; 
-  
-________________________________________
+ 
+- A：
+- 1) float f= 1.3F or f=1.3f;
+- 2) c = 'a'
+- 3)byte [-128,127]
+- 4)boolean value is only true or false 
+- 5) correct
+> 
+> 1、
+基本类型：byte 二进制位数：8
+包装类：java.lang.Byte
+最小值：Byte.MIN_VALUE=-128（-2的7次方）
+最大值：Byte.MAX_VALUE=127（2的7次方-1）
+2、
+基本类型：int 二进制位数：32
+包装类：java.lang.Integer
+最小值：Integer.MIN_VALUE= -2147483648 （-2的31次方）
+最大值：Integer.MAX_VALUE= 2147483647 （2的31次方-1）
+3、
+基本类型：short 二进制位数：16
+包装类：java.lang.Short
+最小值：Short.MIN_VALUE=-32768 （-2的15次方）
+最大值：Short.MAX_VALUE=32767 （2的15次方-1）
+4、
+基本类型：long 二进制位数：64
+包装类：java.lang.Long
+最小值：Long.MIN_VALUE=-9223372036854775808 （-2的63次方）
+最大值：Long.MAX_VALUE=9223372036854775807 （2的63次方-1）
+5、
+基本类型：float 二进制位数：32
+包装类：java.lang.Float
+最小值：Float.MIN_VALUE=1.4E-45 （2的-149次方）
+最大值：Float.MAX_VALUE=3.4028235E38 （2的128次方-1）
+6、
+基本类型：double 二进制位数：64
+包装类：java.lang.Double
+最小值：Double.MIN_VALUE=4.9E-324 （2的-1074次方）
+最大值：Double.MAX_VALUE=1.7976931348623157E308 （2的1024次方-1）
+
+_______________________________________
 Question 2)
 What will happen if you try to compile and run the following code 
     
@@ -23,29 +61,34 @@ What will happen if you try to compile and run the following code
     }
     }
     
-1) error Can't make static reference to void amethod. 
-2) error method main not correct 
-3) error array must include parameter 
-4) amethod must be declared with String 
+1. 1) error Can't make static reference to void amethod. 
+1. 2) error method main not correct 
+1. 3) error array must include parameter 
+1. 4) amethod must be declared with String 
+
+A：1） 无法从静态上下文中引用非静态变量
 ________________________________________
 Question 3)
-Which of the following will compile without error 
-1) 
-import java.awt.*;
-package Mypackage;
-class Myclass {}
-2) 
-package MyPackage;
-import java.awt.*;
-class MyClass{}
-3) 
-/*This is a comment */
-
-package MyPackage;
-import java.awt.*;
-class MyClass{}
-  
-________________________________________
+Which of the following will compile without error
+ 
+    1) 
+    import java.awt.*;
+    package Mypackage;
+    class Myclass {}
+    2) 
+    package MyPackage;
+    import java.awt.*;
+    class MyClass{}
+    3) 
+    /*This is a comment */
+    
+    package MyPackage;
+    import java.awt.*;
+    class MyClass{}
+      
+A： （2）&（3）
+> 包声明应在源文件第一行；注释可以在任何地方；import语句应在package语句之后，所有类之前，
+_______________________________________
 Question 4)
 A byte can be of what size 
 1) -128 to 127 
