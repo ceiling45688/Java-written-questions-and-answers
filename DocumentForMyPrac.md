@@ -89,125 +89,196 @@ Which of the following will compile without error
 A： （2）&（3）
 > 包声明应在源文件第一行；注释可以在任何地方；import语句应在package语句之后，所有类之前，
 _______________________________________
-Question 4)
-A byte can be of what size 
-1) -128 to 127 
-2) (-2 power 8 )-1 to 2 power 8 
-3) -255 to 256 
-4)depends on the particular implementation of the Java Virtual machine 
+    
+    Question 4)
+    A byte can be of what size 
+    1) -128 to 127 
+    2) (-2 power 8 )-1 to 2 power 8 
+    3) -255 to 256 
+    4)depends on the particular implementation of the Java Virtual machine
+
+A：（1） 
 ________________________________________
 Question 5)
-What will be printed out if this code is run with the following command line? 
-java myprog good morning
-public class myprog{
+
+    What will be printed out if this code is run with the following command line? 
+    java myprog good morning
+    public class myprog{
     public static void main(String argv[])
     {
-	System.out.println(argv[2]);
+    	System.out.println(argv[2]);
     }
-}
-1) myprog 
-2) good 
-3) morning 
-4) Exception raised: "java.lang.ArrayIndexOutOfBoundsException: 2" 
+    }
+    1) myprog 
+    2) good 
+    3) morning 
+    4) Exception raised: "java.lang.ArrayIndexOutOfBoundsException: 2" 
   
-
+A：(4)
+程序名不能做参数，这里参数为[good,morning]，所以为数组下标越界
 ________________________________________
 Question 6)
-Which of the following are keywords or reserved words in Java? 
-1) if 
-2) then 
-3) goto 
-4) while 
-5) case 
+
+    Which of the following are keywords or reserved words in Java? 
+    1) if 
+    2) then 
+    3) goto 
+    4) while 
+    5) case 
+
+A：（1）（3）（4）（5）注意 goto为保留字（reserved words）
 ________________________________________
 Question 7)
-Which of the following are legal identifiers 
-1) 2variable 
-2) variable2 
-3) _whatavariable 
-4) _3_ 
-5) $anothervar 
-6) #myvar 
+
+    Which of the following are legal identifiers 
+    1) 2variable 
+    2) variable2 
+    3) _whatavariable 
+    4) _3_ 
+    5) $anothervar 
+    6) #myvar 
+A：2 3 4 5 
+
+> Java变量的基本命名法则：
+> 1、以下划线、字母、美元符开头。( _ $ a )
+> 2、后面跟下划线、字母、美元符以及数字。
+> 3、 没有长度限制（但也不能太长！）。
+> 4、对大小写敏感（意思是大小写代表不同含义）
+> 
+> Java驼峰式命名法：
+> 1、变量名必须为有意义的单词
+> 2、变量名如果只有一个单词，则小写
+> 3、如果有2个以及多个单词，则从第一个单词的首字母小写，其后单词的首字母大写
+> 4:
+> 1、合法的变量名：$ad 、abc 、ajhs01
+> 2、符合驼峰式命名法的变量名：play 、 $play01 、 playGame
+> 关系：合法的变量名不一定遵守驼峰式命名法的规范，但符合驼峰是命名法的变量名一定合法。
+> 在java变量命名中不仅变量名要合法而且也要遵守驼峰式命名法。
+
 ________________________________________
 Question 8)
-What will happen when you compile and run the following code? 
-  
-public class MyClass{
- static int i;
- public static void main(String argv[]){
- System.out.println(i);
- }
-}
-1) Error Variable i may not have been initialized 
-2) null 
-3) 1 
-4) 0 
+
+    What will happen when you compile and run the following code? 
+      
+    public class MyClass{
+     static int i;
+     public static void main(String argv[]){
+     System.out.println(i);
+     }
+    }
+    1) Error Variable i may not have been initialized 
+    2) null 
+    3) 1 
+    4) 0 
+A:(4)
+
+> Java 八种基本类型 默认初始值：
+> 
+> 如果是 byte,short,int,long初值为0
+> 
+> 而float,double则为0.0
+> 
+> 至于   char则是 ' '(空格字符)
+> 
+> 最后是boolean   为false
+> 
+> ps:
+> 对象->null
+> 
+> pps:上述是针对类中成员变量，
+> 如1)   int[] a;   //声明,没有初始化默认值是null
+> 
+> 2)   int[] a=new int[5];   //初始化为默认值,int型为0
+> 
+> 如果是局部成员变量，JVM不会为其设置初始值，故必须先初始化才能使用
+
+
+
+
 ________________________________________
 Question 9)
-What will happen if you try to compile and run the following code? 
-public class Q {
- public static void main(String argv[]){
- int anar[]=new int[]{1,2,3};
- System.out.println(anar[1]);
- }
-}
-1) 1 
-2) Error anar is referenced before it is initialized 
-3) 2 
-4) Error: size of array must be defined 
+
+    What will happen if you try to compile and run the following code? 
+    public class Q {
+     public static void main(String argv[]){
+     int anar[]=new int[]{1,2,3};
+     System.out.println(anar[1]);
+     }
+    }
+    1) 1 
+    2) Error anar is referenced before it is initialized 
+    3) 2 
+    4) Error: size of array must be defined 
+A: (3)
+
+> 
+> Java语法规定的，给数组赋值有以下方式
+> 
+> 1:int [] a = {1,3};
+> 
+> 2:int[] a = new int[]{1,3};
+> 
+> 3:int[] a = new int[2]; a[0] = 1; a[1] = 3;
+> 
+ 
 
 ________________________________________
 Question 10)
 
-What will happen if you try to compile and run the following code? 
-public class Q {
- public static void main(String argv[]){
- int anar[]=new int[5];
- System.out.println(anar[0]);
- }
-}
-1) Error: anar is referenced before it is initialized 
-2) null 
-3) 0 
-4) 5 
+    What will happen if you try to compile and run the following code? 
+    public class Q {
+     public static void main(String argv[]){
+     int anar[]=new int[5];
+     System.out.println(anar[0]);
+     }
+    }
+    1) Error: anar is referenced before it is initialized 
+    2) null 
+    3) 0 
+    4) 5 
+A：（3）
 ________________________________________
 Question 11)
 
-What will be the result of attempting to compile and run the following code? 
-abstract class MineBase {
- abstract void amethod();
- static int i;
-}
-public class Mine extends MineBase {
- public static void main(String argv[]){
- int[] ar=new int[5];
- for(i=0;i < ar.length;i++)
- System.out.println(ar[i]);
- }
-}
-1) a sequence of 5 0's will be printed 
-2) Error: ar is used before it is initialized 
-3) Error Mine must be declared abstract 
-4) IndexOutOfBoundes Error 
+    What will be the result of attempting to compile and run the following code? 
+    abstract class MineBase {
+     abstract void amethod();
+     static int i;
+    }
+    public class Mine extends MineBase {
+     public static void main(String argv[]){
+     int[] ar=new int[5];
+     for(i=0;i < ar.length;i++)
+     System.out.println(ar[i]);
+     }
+    }
+    1) a sequence of 5 0's will be printed 
+    2) Error: ar is used before it is initialized 
+    3) Error Mine must be declared abstract 
+    4) IndexOutOfBoundes Error 
+A：（3）
+要么声明为抽象类（declare abstract）要么把所有抽象方法都实现（implement all abstract methods）
 ________________________________________
 Question 12)
-What will be printed out if you attempt to compile and run the following code ? 
-int i=1;
- switch (i) {
- case 0:
- System.out.println("zero");
- break;
- case 1:
- System.out.println("one");
- case 2:
- System.out.println("two");
- default:
- System.out.println("default");
- }
-1) one 
-2) one, default 
-3) one, two, default 
-4) default 
+    
+    What will be printed out if you attempt to compile and run the following code ? 
+    int i=1;
+     switch (i) {
+     case 0:
+     System.out.println("zero");
+     break;
+     case 1:
+     System.out.println("one");
+     case 2:
+     System.out.println("two");
+     default:
+     System.out.println("default");
+     }
+    1) one 
+    2) one, default 
+    3) one, two, default 
+    4) default 
+A:3)
 ________________________________________
 Question 13)
 What will be printed out if you attempt to compile and run the following code? 
