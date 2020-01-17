@@ -281,99 +281,114 @@ Question 12)
 A:3)
 ________________________________________
 Question 13)
-What will be printed out if you attempt to compile and run the following code? 
-int i=9;
-switch (i) {
- default:
- System.out.println("default");
- case 0:
- System.out.println("zero");
- break;
- case 1:
- System.out.println("one");
- case 2:
- System.out.println("two");
-}
-1) default 
-2) default, zero 
-3) error default clause not defined 
-4) no output displayed 
+
+    What will be printed out if you attempt to compile and run the following code? 
+    int i=9;
+    switch (i) {
+     default:
+     System.out.println("default");
+     case 0:
+     System.out.println("zero");
+     break;
+     case 1:
+     System.out.println("one");
+     case 2:
+     System.out.println("two");
+    }
+    1) default 
+    2) default, zero 
+    3) error default clause not defined 
+    4) no output displayed 
+A：（2）
+
+当找不到case label 时从default执行。
 ________________________________________
 Question 14)
-Which of the following lines of code will compile without error 
-1) 
-int i=0;
-if(i) {
- System.out.println("Hello");
- }
-2) 
-boolean b=true;
-boolean b2=true;
-if(b==b2) {
- System.out.println("So true");
- }
-3) 
-int i=1;
-int j=2;
-if(i==1|| j==2)
- System.out.println("OK");
-4) 
-int i=1;
-int j=2;
-if(i==1 &| j==2)
 
- System.out.println("OK");
+    Which of the following lines of code will compile without error 
+    1) 
+    int i=0;
+    if(i) {
+     System.out.println("Hello");
+     }
+    2) 
+    boolean b=true;
+    boolean b2=true;
+    if(b==b2) {
+     System.out.println("So true");
+     }
+    3) 
+    int i=1;
+    int j=2;
+    if(i==1|| j==2)
+     System.out.println("OK");
+    4) 
+    int i=1;
+    int j=2;
+    if(i==1 &| j==2)
+    
+     System.out.println("OK");
+
+A：2 3
 ________________________________________
 Question 15)
-What will be output if you try to compile and run the following code, but there is 
-no file called Hello.txt in the current directory?. 
-import java.io.*;
-public class Mine {
+
+    What will be output if you try to compile and run the following code, but there is 
+    no file called Hello.txt in the current directory?. 
+    import java.io.*;
+    public class Mine {
     public static void main(String argv[]){
-	Mine m=new Mine();
-	System.out.println(m.amethod());
+    	Mine m=new Mine();
+    	System.out.println(m.amethod());
     }
     public int amethod() {
-	try {
-	    FileInputStream dis=new FileInputStream("Hello.txt");
-	}catch (FileNotFoundException fne) {
-	    System.out.println("No such file found");
-	    return -1;
-	}catch(IOException ioe) {
-	} finally{
-	    System.out.println("Doing finally");
-	}
-
-	return 0;
+    	try {
+    	FileInputStream dis=new FileInputStream("Hello.txt");
+    	}catch (FileNotFoundException fne) {
+    	System.out.println("No such file found");
+    	return -1;
+    	}catch(IOException ioe) {
+    	} finally{
+    	System.out.println("Doing finally");
+    	}
+    
+    	return 0;
     }
+    
+    }
+    1) No such file found 
+    2 No such file found ,-1 
+    3) No such file found, Doing finally, -1 
+    4) 0 
+！！！！ A: （3）
+这题很重要，可以结合Java源码和另一篇finally文档
 
-}
-1) No such file found 
-2 No such file found ,-1 
-3) No such file found, Doing finally, -1 
-4) 0 
+*finally 语句的执行顺序：
+finally 语句块是在 try 或者 catch 中的 return 语句之前执行的*
 ________________________________________
 Question 16)
-Which of the following statements are true? 
-1) Methods cannot be overriden to be more private
-2) static methods cannot be overloaded
-3) private methods cannot be overloaded
-4) An overloaded method cannot throw exceptions not checked in the base class
+
+    Which of the following statements are true? 
+    1) Methods cannot be overriden to be more private
+    2) static methods cannot be overloaded
+    3) private methods cannot be overloaded
+    4) An overloaded method cannot throw exceptions not checked in the base class
 ________________________________________
 Question 17)
-What will happen if you attempt to compile and run the following code? 
-class Base {}
-class Sub extends Base {}
-class Sub2 extends Base {}
-public class CEx{
+
+    What will happen if you attempt to compile and run the following code? 
+    class Base {}
+    class Sub extends Base {}
+    class Sub2 extends Base {}
+    public class CEx{
     public static void main(String argv[]){
-	Base b=new Base();
-	Sub s=(Sub) b;
+    	Base b=new Base();
+    	Sub s=(Sub) b;
     }
-}
-1) Compile and run without error 
-2) Compile time Exception 
-3) Runtime Exception 
+    }
+    1) Compile and run without error 
+    2) Compile time Exception 
+    3) Runtime Exception 
   
 ________________________________________
 Question 18)
