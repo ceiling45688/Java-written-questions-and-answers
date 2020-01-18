@@ -363,8 +363,8 @@ Question 15)
 ！！！！ A: （3）
 这题很重要，可以结合Java源码和另一篇finally文档
 
-*finally 语句的执行顺序：
-finally 语句块是在 try 或者 catch 中的 return 语句之前执行的*
+> *finally 语句的执行顺序：
+> finally 语句块是在 try 或者 catch 中的 return 语句之前执行的*
 ________________________________________
 Question 16)
 
@@ -373,6 +373,38 @@ Question 16)
     2) static methods cannot be overloaded
     3) private methods cannot be overloaded
     4) An overloaded method cannot throw exceptions not checked in the base class
+A：(1）
+
+**静态方法可以overload 但不可以override**
+
+
+
+> override 和 overload 区别：
+> override--**子类对父类方法的扩展**；在Java中覆盖继承父类的方法就是通过方法的重写来实现的。所谓方法的重写是指子类中的方法与父类中继承的方法**有完全相同的返回值类型、方法名、参数个数以及参数类型**。
+> overload -- **在同一个类或其子类中的不同方法**，体现多态性
+> 
+> 
+> **在重写override方法时，需要遵循以下的规则**： 
+
+> (一) 父类方法的参数列表必须完全与被子类重写的方法的**参数列表相同**，否则不能称其为override而是overload。
+
+> (二) 父类的返回类型必须与被子类重写的方法**返回类型相同**，否则不能称其为override而是overload。
+
+> (三) Java中规定，**被子类重写的方法不能拥有比父类方法更加严格的访问权限**。编写过Java程序的人就知道，父类中的方法并不是在任何情况下都可以重写的，**当父类中方法的访问权限修饰符为private时，该方法只能被自己的类访问，不能被外部的类访问，在子类是不能被重写的。**如果定义父类的方法为public，在子类定义为private，程序运行时就会报错。
+
+> (四) 在继承过程中如果父类当中的方法抛出异常，那么在子类中重写父类的该方法时，也要抛出异常，而且抛出的异常不能多于父类中抛出的异常(可以等于父类中抛出的异常)。**换句话说，重写方法一定不能抛出新的检查异常，或者比被重写方法声明更加宽泛的检查型异常。**例如，父类的一个方法申明了一个检查异常IOException，在重写这个方法时就不能抛出Exception，只能抛出IOException的子类异常，可以抛出非检查异常。同样的道理，如果子类中创建了一个成员变量，而该变量和父类中的一个变量名称相同，称作变量重写或属性覆盖。但是此概念一般很少有人去研究它，因为意义不大。
+> 
+> 
+> 在使用**重载overload**要注意以下的几点: 
+
+> - 1.在使用重载时只能通过不同的参数列表，**必须具有不同的参数列表**。 
+- 2.不能通过访问权限、返回类型、抛出的异常进行重载。 
+- 3.方法的**异常类型和数目不会对重载造成影响**。 
+- 4.**可以有不同的返回类型**，只要参数列表不同就可以了。 
+- 5.**可以有不同的访问修饰符**。 
+- 6.**可以抛出不同的异常**。
+
+
 ________________________________________
 Question 17)
 
@@ -389,20 +421,31 @@ Question 17)
     1) Compile and run without error 
     2) Compile time Exception 
     3) Runtime Exception 
-  
+A：（3）ClassCastExceptin
+
+子类不能强制转换为父类，除非父类是子类构造出的实例,如：
+
+	Sub a = new Sub();
+    Base up = a;
 ________________________________________
 Question 18)
-Which of the following statements are true?
-1) System.out.println( -1 >>> 2);will output a result larger than 10
-2) System.out.println( -1 >>> 2); will output a positive number 
-3) System.out.println( 2 >> 1); will output the number 1 
-4) System.out.println( 1 <<< 2); will output the number 4
 
+    Which of the following statements are true?
+    1) System.out.println( -1 >>> 2);will output a result larger than 10
+    2) System.out.println( -1 >>> 2); will output a positive number 
+    3) System.out.println( 2 >> 1); will output the number 1 
+    4) System.out.println( 1 <<< 2); will output the number 4
+
+A：1 2 3
+
+
+>  移位操作符操作的运算对象也是二进制的“位”。移位操作符只可用来处理整数类型，左移位操作符（<<）能按照操作符右侧指定的位数将操作符左边的操作数向左移动（在低位补0），“有符号”右移位操作符（>>）则按照操作符右侧指定的位数将操作符左边的操作数向右移。“有符号”右移位操作符使用“符号扩展”；若符号位正，则在高位插入0；若符号位负。则在高位插入1。java中增加了一种“无符号”右移位操作符（>>>）,他使用“零扩展”；无论正负，都在高位插入0。这一操作符是C或C++中所没有的
 
 ________________________________________
 Question 19)
-What will happen when you attempt to compile and run the following code?
-public class Tux extends Thread{
+
+    What will happen when you attempt to compile and run the following code?
+    public class Tux extends Thread{
 
         static String sName = "vandeleur";
         public static void main(String argv[]){
@@ -423,37 +466,39 @@ public class Tux extends Thread{
         }
         }
 
-}
-1) Compile time error
-2) Compilation and output of "vandeleur wiggy"
-3) Compilation and output of "vandeleur wiggy 0 1 2 3"
-4) Compilation and output of either "vandeleur", "vandeleur 0", "vandeleur 0 1" "vandaleur 0 1 2" or "vandaleur 0 1 2 3"
+    }
 
+    1) Compile time error
+    2) Compilation and output of "vandeleur wiggy"
+    3) Compilation and output of "vandeleur wiggy 0 1 2 3"
+    4) Compilation and output of either "vandeleur", "vandeleur 0", "vandeleur 0 1" "vandaleur 0 1 2" or "vandaleur 0 1 2 3"
+A：（4）
 ________________________________________
 Question 20)
 
-What will be displayed when you attempt to compile and run the following code 
-//Code start
-import java.awt.*;
-public class Butt extends Frame{
+    What will be displayed when you attempt to compile and run the following code 
+    //Code start
+    import java.awt.*;
+    public class Butt extends Frame{
     public static void main(String argv[]){
-	Butt MyBut=new Butt();
+    	Butt MyBut=new Butt();
     }
     Butt(){
-	Button HelloBut=new Button("Hello");
-	Button ByeBut=new Button("Bye");
-	add(HelloBut);
-	add(ByeBut);
-	setSize(300,300);
-	setVisible(true);
+    	Button HelloBut=new Button("Hello");
+    	Button ByeBut=new Button("Bye");
+    	add(HelloBut);
+    	add(ByeBut);
+    	setSize(300,300);
+    	setVisible(true);
     }
-}
-//Code end
-1) Two buttons side by side occupying all of the frame, Hello on the left and Bye on 
-the right 
-2) One button occupying the entire frame saying Hello 
-3) One button occupying the entire frame saying Bye 
-4) Two buttons at the top of the frame one saying Hello the other saying Bye 
+    }
+    //Code end
+    1) Two buttons side by side occupying all of the frame, Hello on the left and Bye on 
+    the right 
+    2) One button occupying the entire frame saying Hello 
+    3) One button occupying the entire frame saying Bye 
+    4) Two buttons at the top of the frame one saying Hello the other saying Bye 
+ A：（3）   
 ________________________________________
 Question 21)
 
