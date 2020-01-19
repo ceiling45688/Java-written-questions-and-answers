@@ -502,104 +502,113 @@ Question 20)
 ________________________________________
 Question 21)
 
-What will be output by the following code? 
-public class MyFor{
+    What will be output by the following code? 
+    public class MyFor{
     public static void main(String argv[]){
-	int i;
-	int j;
+    	int i;
+    	int j;
     outer:
-	for (i=1;i <3;i++)
-	    inner:
-	for(j=1; j<3; j++) {
-	    if (j==2)
-		continue outer;
-	    System.out.println("Value for i=" + i + " Value for j=" +j);
-	}
+    	for (i=1;i <3;i++)
+    	inner:
+    	for(j=1; j<3; j++) {
+    	if (j==2)
+    		continue outer;
+    	System.out.println("Value for i=" + i + " Value for j=" +j);
+    	}
     }
+    
+    }
+    1) Value for i=1 Value for j=1 
+    2) Value for i=2 Value for j=1 
+    3) Value for i=2 Value for j=2 
+    4) Value for i=3 Value for j=1 
 
-}
-1) Value for i=1 Value for j=1 
-2) Value for i=2 Value for j=1 
-3) Value for i=2 Value for j=2 
-4) Value for i=3 Value for j=1 
+A： 1 2 
 ________________________________________
 Question 22)
-Which statement is true of the following code?
-public class Agg{
-public static void main(String argv[]){
-	Agg a = new Agg();
-	a.go();
-	}
-	public void go(){
-		DSRoss ds1 = new DSRoss("one");
-		ds1.start();
-	}
-}
 
-class DSRoss extends Thread{
-private String sTname="";
-DSRoss(String s){
-	sTname = s;
-}
-public void run(){
-	notwait();
-	System.out.println("finished");
-}
-public void notwait(){
-	while(true){
-		try{
-	 		System.out.println("waiting");
-	 		wait();
-			}catch(InterruptedException ie){}
-		System.out.println(sTname);
-		notifyAll();
-		}
-	}
-	
-}
-1) It will cause a compile time error
-2) Compilation and output of "waiting"
-3) Compilation and output of "waiting" followed by "finished"
-4) Runtime error, an exception will be thrown
-
+    Which statement is true of the following code?
+    public class Agg{
+    public static void main(String argv[]){
+    	Agg a = new Agg();
+    	a.go();
+    	}
+    	public void go(){
+    		DSRoss ds1 = new DSRoss("one");
+    		ds1.start();
+    	}
+    }
+    
+    class DSRoss extends Thread{
+    private String sTname="";
+    DSRoss(String s){
+    	sTname = s;
+    }
+    public void run(){
+    	notwait();
+    	System.out.println("finished");
+    }
+    public void notwait(){
+    	while(true){
+    		try{
+    	 		System.out.println("waiting");
+    	 		wait();
+    			}catch(InterruptedException ie){}
+    		System.out.println(sTname);
+    		notifyAll();
+    		}
+    	}
+    	
+    }
+    1) It will cause a compile time error
+    2) Compilation and output of "waiting"
+    3) Compilation and output of "waiting" followed by "finished"
+    4) Runtime error, an exception will be thrown
+A：4
 ________________________________________
 Question 23)
 
-Which of the following methods can be legally inserted in place of the comment //Method Here ? 
-class Base{
- public void amethod(int i) { }
-}
+    Which of the following methods can be legally inserted in place of the comment //Method Here ? 
+    class Base{
+     public void amethod(int i) { }
+    }
+    
+    public class Scope extends Base{
+     public static void main(String argv[]){
+     }
+     //Method Here
+    }
+    1) void amethod(int i) throws Exception {} 
+    2) void amethod(long i)throws Exception {} 
+    3) void amethod(long i){} 
+    4) public void amethod(int i) throws Exception {} 
+ A ： 2 3 overload  
+ ________________________________________
 
-public class Scope extends Base{
- public static void main(String argv[]){
- }
- //Method Here
-}
-1) void amethod(int i) throws Exception {} 
-2) void amethod(long i)throws Exception {} 
-3) void amethod(long i){} 
-4) public void amethod(int i) throws Exception {} 
-________________________________________
 Question 24)
 
-Which of the following will output -4.0 
-1) System.out.println(Math.floor(-4.7)); 
-2) System.out.println(Math.round(-4.7)); 
-3) System.out.println(Math.ceil(-4.7)); 
-4) System.out.println(Math.min(-4.7)); 
+    Which of the following will output -4.0 
+    1) System.out.println(Math.floor(-4.7)); 
+    2) System.out.println(Math.round(-4.7)); 
+    3) System.out.println(Math.ceil(-4.7)); 
+    4) System.out.println(Math.min(-4.7)); 
+
+A： 3
+
+1 - > -5.0; 2 -> -5; 4 -> error min（a，b）
 ________________________________________
 Question 25)
-
-What will happen if you attempt to compile and run the following code? 
-Integer ten=new Integer(10);
-Long nine=new Long (9);
-System.out.println(ten + nine);
-int i=1;
-System.out.println(i + ten);
-1) 19 followed by 20 
-2) 19 followed by 11 
-3) Compile time error 
-4) 10 followed by 1 
+    
+    What will happen if you attempt to compile and run the following code? 
+    Integer ten=new Integer(10);
+    Long nine=new Long (9);
+    System.out.println(ten + nine);
+    int i=1;
+    System.out.println(i + ten);
+    1) 19 followed by 20 
+    2) 19 followed by 11 
+    3) Compile time error 
+    4) 10 followed by 1 
 ________________________________________
 Question 26)
 
