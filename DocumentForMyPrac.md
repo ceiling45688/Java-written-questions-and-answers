@@ -612,105 +612,112 @@ Question 25)
 ________________________________________
 Question 26)
 
-If you run the code below, what gets printed out? 
-String s=new String("Bicycle");
-int iBegin=1;
-char iEnd=3;
-System.out.println(s.substring(iBegin,iEnd));
-1) Bic 
-2) ic 
-3) icy 
-4) error: no method matching substring(int,char) 
+    If you run the code below, what gets printed out? 
+    String s=new String("Bicycle");
+    int iBegin=1;
+    char iEnd=3;
+    System.out.println(s.substring(iBegin,iEnd));
+    1) Bic 
+    2) ic 
+    3) icy 
+    4) error: no method matching substring(int,char) 
 ________________________________________
 Question 27)
-If you wanted to find out where the position of the letter v (ie return 2) in the string s 
-containing "Java", which of the following could you use? 
-1) mid(2,s); 
-2) charAt(2); 
-3) s.indexOf('v'); 
-4) indexOf(s,'v'); 
+
+    If you wanted to find out where the position of the letter v (ie return 2) in the string s 
+    containing "Java", which of the following could you use? 
+    1) mid(2,s); 
+    2) charAt(2); 
+    3) s.indexOf('v'); 
+    4) indexOf(s,'v'); 
 ________________________________________
 Question 28)
-Given the following declarations 
-String s1=new String("Hello")
-String s2=new String("there");
-String s3=new String();
-Which of the following are legal operations? 
-1) s3=s1 + s2; 
-2) s3=s1-s2; 
-3) s3=s1 & s2; 
-4) s3=s1 && s2 
+
+    Given the following declarations 
+    String s1=new String("Hello")
+    String s2=new String("there");
+    String s3=new String();
+    Which of the following are legal operations? 
+    1) s3=s1 + s2; 
+    2) s3=s1-s2; 
+    3) s3=s1 & s2; 
+    4) s3=s1 && s2 
 ________________________________________
 Question 29)
-What is the result of the following operation? 
-System.out.println(4 | 3); 
-1) 6 
-2) 0 
-3) 1 
-4) 7 
+
+    What is the result of the following operation? 
+    System.out.println(4 | 3); 
+    1) 6 
+    2) 0 
+    3) 1 
+    4) 7 
 ________________________________________
 Question 30)
-public class MyClass1 {
-public static void main(String argv[]){ }
-/*Modifier at XX */ class MyInner {}
-}
-What modifiers would be legal at XX in the above code? 
-1) public 
-2) private 
-3) static 
-4) friend 
+
+    public class MyClass1 {
+    public static void main(String argv[]){ }
+    /*Modifier at XX */ class MyInner {}
+    }
+    What modifiers would be legal at XX in the above code? 
+    1) public 
+    2) private 
+    3) static 
+    4) friend 
 ________________________________________
 Question 31)
 
-What will happen when you attempt to compile and run the following code?
-public class Holt extends Thread{
-        private String sThreadName; 
-        public static void main(String argv[]){
-                Holt h = new Holt();
-                h.go(); 
-        }
-Holt(){}
-
-Holt(String s){
-        sThreadName = s;
-}
-public String getThreadName(){
-        return sThreadName;
-}
-
-public void go(){
-        Holt first = new Holt("first");
-        first.start();
-        Holt second = new Holt("second");
-        second.start();
-}
-
-        public void start(){
-                for(int i = 0; i < 2; i ++){
-                        System.out.println(getThreadName() +i);
-                try{
-                        Thread.sleep(100);
-                        } catch(InterruptedException e){System.out.println(e.getMessage());}
-                }
-        }
-}
-
-1) Compile time error
-2) Output of first0, second0, first0, second1
-3) Output of first0, first1, second0, second1
-4) Runtime error
+    What will happen when you attempt to compile and run the following code?
+    public class Holt extends Thread{
+    private String sThreadName; 
+	    public static void main(String argv[]){
+	    	Holt h = new Holt();
+			h.go(); 
+	    }
+	    	Holt(){}
+    
+	    Holt(String s){
+	    	sThreadName = s;
+	    }
+	    public String getThreadName(){
+	    	return sThreadName;
+    	}
+    
+    public void go(){
+	    Holt first = new Holt("first");
+	    first.start();
+	    Holt second = new Holt("second");
+	    second.start();
+    }
+    
+    public void start(){
+	    for(int i = 0; i < 2; i ++){
+	    System.out.println(getThreadName() +i);
+	    try{
+	    Thread.sleep(100);
+	    } catch(InterruptedException e){
+			System.out.println(e.getMessage());
+		}
+	   }
+    }
+    }
+    
+    1) Compile time error
+    2) Output of first0, second0, first0, second1
+    3) Output of first0, first1, second0, second1
+    4) Runtime error
 ________________________________________
 Question 32)
-An Applet has its Layout Manager set to the default of FlowLayout. What code would be correct to change to another Layout Manager. 
-1) setLayoutManager(new GridLayout()); 
-2) setLayout(new GridLayout(2,2)); 
-3) setGridLayout(2,2);
-4) setBorderLayout(); 
+
+    An Applet has its Layout Manager set to the default of FlowLayout. What code would be correct to change to another Layout Manager. 
+    1) setLayoutManager(new GridLayout()); 
+    2) setLayout(new GridLayout(2,2)); 
+    3) setGridLayout(2,2);
+    4) setBorderLayout(); 
 ________________________________________
 Question 33)
 
-What will happen when you attempt to compile and run the following code?. 
-class Background implements Runnable{
+    What will happen when you attempt to compile and run the following code?. 
+    class Background implements Runnable{
 	int i=0;
 		public int run(){
 			 while(true){
@@ -720,43 +727,44 @@ class Background implements Runnable{
 		     return 1;
 	 }//End run
 
-}//End class
-1) It will compile and the run method will print out the increasing value of i. 
-2) It will compile and calling start will print out the increasing value of i. 
-3) The code will cause an error at compile time. 
-4) Compilation will cause an error because while cannot take a parameter of true. 
+    }//End class
+    1) It will compile and the run method will print out the increasing value of i. 
+    2) It will compile and calling start will print out the increasing value of i. 
+    3) The code will cause an error at compile time. 
+    4) Compilation will cause an error because while cannot take a parameter of true. 
 
 ________________________________________
 Question 34)
-Which of the following statements about this code are true?
-public class Morecombe{
-public static void main(String argv[]){
- 	Morecombe m = new Morecombe();
-	m.go(new Turing(){});	
-}
-public void go(Turing t){
-	t.start();
-	}
 
-}
-class Turing extends Thread{
+    Which of the following statements about this code are true?
+    public class Morecombe{
+    public static void main(String argv[]){
+     	Morecombe m = new Morecombe();
+		m.go(new Turing(){});	
+    }
+    public void go(Turing t){
+		t.start();
+		}
+
+    }
+    class Turing extends Thread{
 	public void run(){
 		for(int i =0; i < 2; i++){
 			System.out.println(i);
 		}	
 	}	
-
-}
-
-1) Compilation error due to malformed parameter to go method
-2) Compilation error, class Turing has no start method
-3) Compilation and output of 0 followed by 1
-4) Compilation but runtime error
+    
+    }
+    
+    1) Compilation error due to malformed parameter to go method
+    2) Compilation error, class Turing has no start method
+    3) Compilation and output of 0 followed by 1
+    4) Compilation but runtime error
 ________________________________________
 Question 35)
 
-What will be the result when you attempt to compile and run the following code?. 
-public class Conv{
+    What will be the result when you attempt to compile and run the following code?. 
+    public class Conv{
     public static void main(String argv[]){
 	Conv c=new Conv();
 	String s=new String("ello");
@@ -768,11 +776,11 @@ public class Conv{
 	c+=s;
 	System.out.println(c);
     }
-}
-1) Compilation and output the string "Hello" 
-2) Compilation and output the string "ello" 
-3) Compilation and output the string elloH 
-4) Compile time error 
+    }
+    1) Compilation and output the string "Hello" 
+    2) Compilation and output the string "ello" 
+    3) Compilation and output the string elloH 
+    4) Compile time error 
 ________________________________________
 Question 36)
 Given the following code, what test would you need to put in place of the comment line? 
